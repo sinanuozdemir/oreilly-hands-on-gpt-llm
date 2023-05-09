@@ -1,3 +1,4 @@
 notebooks/.ipynb_checkpoints/
 notebooks/snips_clf/
 notebooks/wandb/
+.DS_Store
