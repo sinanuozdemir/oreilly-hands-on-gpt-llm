@@ -1,0 +1,69 @@
+2023-05-08 09:29:18,890 INFO    MainThread:84056 [wandb_setup.py:_flush():76] Configure stats pid to 84056
+2023-05-08 09:29:18,890 INFO    MainThread:84056 [wandb_setup.py:_flush():76] Loading settings from /Users/sinanozdemir/.config/wandb/settings
+2023-05-08 09:29:18,890 INFO    MainThread:84056 [wandb_setup.py:_flush():76] Loading settings from /Users/sinanozdemir/Teaching/Pearson/oreilly-hands-on-gpt-llm/notebooks/wandb/settings
+2023-05-08 09:29:18,890 INFO    MainThread:84056 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2023-05-08 09:29:18,890 WARNING MainThread:84056 [wandb_setup.py:_flush():76] Could not save program above cwd: /opt/homebrew/bin/openai
+2023-05-08 09:29:18,890 INFO    MainThread:84056 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': None, 'program': '/opt/homebrew/bin/openai'}
+2023-05-08 09:29:18,890 INFO    MainThread:84056 [wandb_init.py:_log_setup():506] Logging user logs to /Users/sinanozdemir/Teaching/Pearson/oreilly-hands-on-gpt-llm/notebooks/wandb/run-20230508_092918-ft-tnvysbOzvkIfPgtPo6oQ3c7O/logs/debug.log
+2023-05-08 09:29:18,890 INFO    MainThread:84056 [wandb_init.py:_log_setup():507] Logging internal logs to /Users/sinanozdemir/Teaching/Pearson/oreilly-hands-on-gpt-llm/notebooks/wandb/run-20230508_092918-ft-tnvysbOzvkIfPgtPo6oQ3c7O/logs/debug-internal.log
+2023-05-08 09:29:18,890 INFO    MainThread:84056 [wandb_init.py:init():546] calling init triggers
+2023-05-08 09:29:18,891 INFO    MainThread:84056 [wandb_init.py:init():552] wandb.init called with sweep_config: {}
+config: {'object': 'fine-tune', 'id': 'ft-tnvysbOzvkIfPgtPo6oQ3c7O', 'hyperparams': <OpenAIObject at 0x12343eac0> JSON: {
+  "batch_size": 256,
+  "classification_n_classes": 5,
+  "compute_classification_metrics": true,
+  "learning_rate_multiplier": 0.1,
+  "n_epochs": 1,
+  "prompt_loss_weight": 0.01
+}, 'organization_id': 'org-azQm6jrJ3FSBpJAwYcgxQxGu', 'model': 'ada', 'training_files': <File file id=file-SEDigPmqhtT3QTo20ByIgpus at 0x12343f2e0> JSON: {
+  "bytes": 50313473,
+  "created_at": 1683561086,
+  "filename": "amazon-english-full-train-sentiment-random.jsonl",
+  "id": "file-SEDigPmqhtT3QTo20ByIgpus",
+  "object": "file",
+  "purpose": "fine-tune",
+  "status": "processed",
+  "status_details": null
+}, 'validation_files': <File file id=file-u2ik6qOwMXgDyWsTqwzELdPe at 0x1233f5030> JSON: {
+  "bytes": 1267658,
+  "created_at": 1683561088,
+  "filename": "amazon-english-full-val-sentiment-random.jsonl",
+  "id": "file-u2ik6qOwMXgDyWsTqwzELdPe",
+  "object": "file",
+  "purpose": "fine-tune",
+  "status": "processed",
+  "status_details": null
+}, 'result_files': <File file id=file-QHhhi05wgj0eBQGnpPLxXBaT at 0x12343f650> JSON: {
+  "bytes": 54915,
+  "created_at": 1683563149,
+  "filename": "compiled_results.csv",
+  "id": "file-QHhhi05wgj0eBQGnpPLxXBaT",
+  "object": "file",
+  "purpose": "fine-tune-results",
+  "status": "processed",
+  "status_details": null
+}, 'created_at': datetime.datetime(2023, 5, 8, 8, 51, 29), 'updated_at': 1683563150, 'status': 'succeeded', 'fine_tuned_model': 'ada:ft-personal-2023-05-08-16-25-48'}
+2023-05-08 09:29:18,891 INFO    MainThread:84056 [wandb_init.py:init():602] starting backend
+2023-05-08 09:29:18,891 INFO    MainThread:84056 [wandb_init.py:init():606] setting up manager
+2023-05-08 09:29:18,899 INFO    MainThread:84056 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2023-05-08 09:29:18,903 INFO    MainThread:84056 [wandb_init.py:init():613] backend started and connected
+2023-05-08 09:29:18,905 INFO    MainThread:84056 [wandb_init.py:init():701] updated telemetry
+2023-05-08 09:29:18,921 INFO    MainThread:84056 [wandb_init.py:init():741] communicating run to backend with 60.0 second timeout
+2023-05-08 09:29:19,546 INFO    MainThread:84056 [wandb_run.py:_on_init():2133] communicating current version
+2023-05-08 09:29:19,793 INFO    MainThread:84056 [wandb_run.py:_on_init():2142] got version response upgrade_message: "wandb version 0.15.2 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-05-08 09:29:19,793 INFO    MainThread:84056 [wandb_init.py:init():789] starting run threads in backend
+2023-05-08 09:29:19,867 INFO    MainThread:84056 [wandb_run.py:_console_start():2114] atexit reg
+2023-05-08 09:29:19,867 INFO    MainThread:84056 [wandb_run.py:_redirect():1969] redirect: SettingsConsole.WRAP_RAW
+2023-05-08 09:29:19,867 INFO    MainThread:84056 [wandb_run.py:_redirect():2034] Wrapping output streams.
+2023-05-08 09:29:19,867 INFO    MainThread:84056 [wandb_run.py:_redirect():2059] Redirects installed.
+2023-05-08 09:29:19,868 INFO    MainThread:84056 [wandb_init.py:init():831] run started, returning control to user process
+2023-05-08 09:29:33,272 INFO    MainThread:84056 [wandb_run.py:_config_callback():1251] config_cb None None {'n_train': 199891}
+2023-05-08 09:30:13,381 INFO    MainThread:84056 [wandb_run.py:_config_callback():1251] config_cb None None {'n_valid': 5000}
+2023-05-08 09:30:18,240 INFO    MainThread:84056 [wandb_run.py:_finish():1854] finishing run profoz/GPT-3/ft-tnvysbOzvkIfPgtPo6oQ3c7O
+2023-05-08 09:30:18,240 INFO    MainThread:84056 [wandb_run.py:_atexit_cleanup():2083] got exitcode: 0
+2023-05-08 09:30:18,242 INFO    MainThread:84056 [wandb_run.py:_restore():2066] restore
+2023-05-08 09:30:18,242 INFO    MainThread:84056 [wandb_run.py:_restore():2072] restore done
+2023-05-08 09:30:34,718 INFO    MainThread:84056 [wandb_run.py:_footer_history_summary_info():3422] rendering history
+2023-05-08 09:30:34,722 INFO    MainThread:84056 [wandb_run.py:_footer_history_summary_info():3454] rendering summary
+2023-05-08 09:30:34,733 INFO    MainThread:84056 [wandb_run.py:_footer_sync_info():3380] logging synced files
