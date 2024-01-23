@@ -8,13 +8,14 @@ In this training, you learn how to use GPT-3, ChatGPT, OpenAI embeddings, and ot
 
 ### Notebooks
 
-[Training BERT for Classification](notebooks/bert_classification.ipynb)
+[Finetuning with OpenAI](notebooks/fine_tuned_classification_sentiment.ipynb)
+
+[Training BERT for Classification](notebooks/BERT%20vs%20GPT.ipynb)
 
 [Introduction to Prompt Engineering](notebooks/intro_prompt_engineering.ipynb)
 
-[Advanced to Prompt Engineering](notebooks/advanced_prompt_engineering.ipynb)
+[Advanced to Prompt Engineering](notebooks/adv_prompt_engineering.ipynb)
 
-[Finetuning with OpenAI](notebooks/openai_fine_tuned_classification.ipynb)
 
 [Semantic Search](notebooks/semantic_search.ipynb)
 
