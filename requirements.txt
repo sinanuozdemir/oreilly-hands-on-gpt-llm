@@ -1,0 +1,9 @@
+pinecone-client==3.0.1
+transformers==4.36.2
+torch==2.0.1
+datasets==2.13.1
+openai==1.6.1
+cohere==4.31
+pandas==2.0.3
+seaborn==0.13.0
+numpy==1.26.0
