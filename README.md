@@ -12,12 +12,20 @@ In this training, you learn how to use GPT-3, ChatGPT, OpenAI embeddings, and ot
 
 [Training BERT for Classification](notebooks/BERT%20vs%20GPT.ipynb)
 
+
+[More Classification with BERT](notebooks/anime_category_classification_model_freezing.ipynb)
+
 [Introduction to Prompt Engineering](notebooks/intro_prompt_engineering.ipynb)
 
 [Advanced to Prompt Engineering](notebooks/adv_prompt_engineering.ipynb)
 
 
 [Semantic Search](notebooks/semantic_search.ipynb)
+
+### Extra
+
+
+[LLM Distillation](notebooks/distillation.ipynb)
 
 
 
