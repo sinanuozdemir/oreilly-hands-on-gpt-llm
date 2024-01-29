@@ -7,3 +7,4 @@ cohere==4.31
 pandas==2.0.3
 seaborn==0.13.0
 numpy==1.26.0
+sentence-transformers==2.2.2
