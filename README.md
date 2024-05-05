@@ -26,6 +26,7 @@ In this training, you learn how to use GPT-3, ChatGPT, OpenAI embeddings, and ot
 
 
 [LLM Distillation](notebooks/distillation.ipynb)
+[LLM Quantization](https://colab.research.google.com/drive/12RTnrcaXCeAqyGQNbWsrvcqKyOdr0NSm?usp=sharing)
 
 
 
