@@ -8,25 +8,38 @@ In this training, you learn how to use GPT-4, ChatGPT, OpenAI embeddings, and ot
 
 ### Notebooks
 
-[Finetuning with OpenAI](notebooks/fine_tuned_classification_sentiment.ipynb)
+- **Fine-Tuning LLMs**
 
-[Training BERT for Classification](notebooks/BERT%20vs%20GPT.ipynb)
+	- [Finetuning app_reviews with OpenAI](notebooks/fine_tuned_classification_sentiment.ipynb)
 
-[More Classification with BERT](notebooks/anime_category_classification_model_freezing.ipynb)
+	- [Fine-tuning BERT for app_reviews](notebooks/BERT%20vs%20GPT.ipynb)
 
-[Introduction to Prompt Engineering](notebooks/intro_prompt_engineering.ipynb)
+	- [Model Freezing with BERT](notebooks/anime_category_classification_model_freezing.ipynb)
 
-[Advanced to Prompt Engineering](notebooks/adv_prompt_engineering.ipynb)
+- **Prompt Engineering**
+	- [Introduction to Prompt Engineering](notebooks/intro_prompt_engineering.ipynb)
 
-[Semantic Search](notebooks/semantic_search.ipynb)
+	- [Advanced to Prompt Engineering](notebooks/adv_prompt_engineering.ipynb)
 
-### Extra
+- **RAG**
 
-[RAG Bot](notebooks/rag_bot.ipynb)
+	- [Semantic Search](notebooks/semantic_search.ipynb)
 
-[LLM Distillation](https://colab.research.google.com/drive/1GO8w1gC2TRII9-aaRNaFN6mkCglm2pJa?usp=sharing)
+	- [A basic RAG Bot using GPT and Pinecone](notebooks/rag_bot.ipynb)
 
-[LLM Quantization](https://colab.research.google.com/drive/12RTnrcaXCeAqyGQNbWsrvcqKyOdr0NSm?usp=sharing)
+**LLM Distillation**
+
+- [Distilling BERT models to optimize for speed/memory](https://colab.research.google.com/drive/1GO8w1gC2TRII9-aaRNaFN6mkCglm2pJa?usp=sharing)
+
+**LLM Quantization**
+
+- [Quantizing Llama-3 dynamically](https://colab.research.google.com/drive/12RTnrcaXCeAqyGQNbWsrvcqKyOdr0NSm?usp=sharing)
+
+- [Working with GGUF (no GPU)](https://colab.research.google.com/drive/15IC5cI-aFbpND5GrvKjAMas1Hmc7M6Rg?usp=sharing)
+
+- [Working with GGUF (with a GPU)](https://colab.research.google.com/drive/1D6k-BeuF8YRTR8BGi2YYJrSOAZ6cYX8Y?usp=sharing)
+
+- See [this directory](./llama_cpp) for a K8s demo of using embedding models and Llama 3 with GGUF on a GPU
 
 
 ## Instructor

@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: llama-namespace  # The name of your new namespace
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llama-app
+  namespace: llama-namespace  # Specify the namespace
+  labels:
+    app: llama
+spec:
+  replicas: 1  # Number of pods to run
+  selector:
+    matchLabels:
+      app: llama
+  template:
+    metadata:
+      labels:
+        app: llama
+    spec:
+      containers:
+      - name: llama-container
+        image: sinanuozdemir/llama-cpp-demo:15
+        resources:
+          limits:
+            memory: "1500Mi"  # Limit the memory usage to 1.5GB
+            nvidia.com/gpu: 1
+            ephemeral-storage: "20Gi"  # Limit the ephemeral storage to 20GiB    
+            cpu: "1000m"
+          requests:
+            memory: "1Gi"  # Request 1GiB of memory
+            nvidia.com/gpu: 1
+            ephemeral-storage: "15Gi"  # Request 15GiB of ephemeral storage
+            cpu: "500m"
+        ports:
+        - containerPort: 5005  # Port to expose
+        env:
+        - name: GGML_CUDA
+          value: "on"
+        command: ["python", "/app/model.py"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: llama-service
+  namespace: llama-namespace  # Specify the namespace
+spec:
+  selector:
+    app: llama
+  ports:
+    - protocol: TCP
+      port: 80  # External port
+      targetPort: 5005  # Port on the container
+  type: LoadBalancer
