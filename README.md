@@ -2,7 +2,7 @@
 
 # Deploying GPT & Large Language Models
 
-This repository contains code for the [O'Reilly Live Online Training for Deploying GPT & LLMs](https://learning.oreilly.com/live-events/deploying-gpt-and-large-language-models/0636920087375/0636920087374)
+This repository contains code for the [O'Reilly Live Online Training for Deploying GPT & LLMs](https://www.oreilly.com/live-events/deploying-gpt-large-language-models-llms/0642572012963)
 
 In this training, you learn how to use GPT-4, ChatGPT, OpenAI embeddings, and other large language models to build applications for both experimenting and production. We cover the fundamentals of GPT and its applications and explore alternative generative models such as Cohere and GPT-J. You gain practical experience in building a variety of applications with these models, including text generation, summarization, question answering, and more. Learn how to leverage prompt engineering, context stuffing, and few-shot learning to get the most out of GPT-like models. Then the focus shifts to deploying these models in production, including best practices and debugging techniques. By the end of the training, you have a working knowledge of GPT and other large language models, as well as the skills to start building your own applications with them.
 
