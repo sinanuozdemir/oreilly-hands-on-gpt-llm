@@ -2,7 +2,7 @@
 
 # Deploying GPT & Large Language Models
 
-This repository contains code for the [O'Reilly Live Online Training for Deploying GPT & LLMs](https://learning.oreilly.com/live-events/deploying-gpt-and-large-language-models/0636920087375/0636920087374)
+This repository contains code for the [O'Reilly Live Online Training for Deploying GPT & LLMs](https://www.oreilly.com/live-events/deploying-gpt-large-language-models-llms/0642572012963)
 
 This course is designed to equip software engineers, data scientists, and machine learning professionals with the skills and knowledge needed to deploy AI models effectively in production environments. As AI continues to revolutionize industries, the ability to deploy, manage, and optimize AI applications at scale is becoming increasingly crucial. This course covers the full spectrum of deployment considerations, from leveraging cutting-edge tools like Kubernetes, llama.cpp, and GGUF, to mastering cost management, compute optimization, and model quantization.
 
