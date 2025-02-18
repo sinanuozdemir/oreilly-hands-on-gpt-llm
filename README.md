@@ -39,6 +39,8 @@ This course is designed to equip software engineers, data scientists, and machin
 
 - [Working with GGUF (with a GPU)](https://colab.research.google.com/drive/1D6k-BeuF8YRTR8BGi2YYJrSOAZ6cYX8Y?usp=sharing) - Using Llama.cpp to work with models
 
+- [DeepSeek Model on GGUF](https://colab.research.google.com/drive/1dHx_t_BSfqANBECcHXm2atpvqwxWmE3k?usp=sharing) - Running a DeepSeek Distilled Llama model using Llama.cpp
+
 - See [this directory](./llama_cpp) for a K8s demo of using embedding models and Llama 3 with GGUF on a GPU
 
 
