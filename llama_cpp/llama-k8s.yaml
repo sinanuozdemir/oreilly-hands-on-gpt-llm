@@ -22,10 +22,10 @@ spec:
     spec:
       containers:
       - name: llama-container
-        image: sinanuozdemir/llama-cpp-demo:15
+        image: sinanuozdemir/llama-cpp-demo:30
         resources:
           limits:
-            memory: "1500Mi"  # Limit the memory usage to 1.5GB
+            memory: "8Gi"  # Limit the memory usage to 8GiB
             nvidia.com/gpu: 1
             ephemeral-storage: "20Gi"  # Limit the ephemeral storage to 20GiB    
             cpu: "1000m"
