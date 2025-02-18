@@ -18,7 +18,7 @@ This course is designed to equip software engineers, data scientists, and machin
 
 - [Cleaning Data using Deep Learning](https://colab.research.google.com/drive/1hPnU9sLsV9W50q9rd_oxUU1Bv7SUCVU5?usp=sharing) - Using AUM and Cosine Similarity to clean data
 
-- [Combatting AI drift](https://colab.research.google.com/drive/14E6DMP_RGctUPqjI6VMa8EFlggXR7fat?usp=sharing) - Using Online Learning to combat drift
+- [Combating AI drift](https://colab.research.google.com/drive/14E6DMP_RGctUPqjI6VMa8EFlggXR7fat?usp=sharing) - Using Online Learning to combat drift
 
 **Evaluating Agents**
 
