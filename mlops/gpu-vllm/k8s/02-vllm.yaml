@@ -1,0 +1,109 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vllm
+  namespace: llm-serving
+  labels:
+    app: vllm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vllm
+  template:
+    metadata:
+      labels:
+        app: vllm
+    spec:
+      containers:
+        - name: vllm
+          image: vllm/vllm-openai:latest
+          args:
+            - "--model"
+            - "Qwen/Qwen3-14B-AWQ"
+            - "--host"
+            - "0.0.0.0"
+            - "--port"
+            - "8080"
+            - "--gpu-memory-utilization"
+            - "0.9"
+            - "--max-model-len"
+            - "4096"
+            - "--quantization"
+            - "awq"
+            - "--dtype"
+            - "half"
+            - "--trust-remote-code"
+            - "--enable-auto-tool-choice"
+            - "--tool-call-parser"
+            - "hermes"
+          ports:
+            - containerPort: 8080
+              name: http
+          env:
+            - name: HF_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: llm-secrets
+                  key: hf-token
+                  optional: true
+          resources:
+            requests:
+              cpu: "2"
+              memory: "8Gi"
+              nvidia.com/gpu: "1"
+            limits:
+              cpu: "4"
+              memory: "16Gi"
+              nvidia.com/gpu: "1"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 120
+            periodSeconds: 10
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 180
+            periodSeconds: 30
+          volumeMounts:
+            - name: model-cache
+              mountPath: /root/.cache/huggingface
+      volumes:
+        - name: model-cache
+          persistentVolumeClaim:
+            claimName: model-cache-pvc
+      # Ensure scheduling on GPU nodes
+      tolerations:
+        - key: nvidia.com/gpu
+          operator: Exists
+          effect: NoSchedule
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vllm-svc
+  namespace: llm-serving
+spec:
+  selector:
+    app: vllm
+  ports:
+    - port: 8080
+      targetPort: 8080
+      name: http
+  type: ClusterIP  # Internal only — gateway talks to this
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: model-cache-pvc
+  namespace: llm-serving
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi

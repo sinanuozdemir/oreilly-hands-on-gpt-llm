@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway
+  namespace: llm-serving
+  labels:
+    app: gateway
+spec:
+  replicas: 2  # Multiple replicas for HA
+  selector:
+    matchLabels:
+      app: gateway
+  template:
+    metadata:
+      labels:
+        app: gateway
+    spec:
+      containers:
+        - name: gateway
+          # Build and push: docker build -t your-registry/llm-gateway:latest ./gpu-vllm/gateway
+          image: registry.digitalocean.com/llm-registry/llm-gateway:latest
+          ports:
+            - containerPort: 8000
+              name: http
+          env:
+            - name: VLLM_BASE_URL
+              value: "http://vllm-svc.llm-serving.svc.cluster.local:8080"
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: llm-secrets
+                  key: api-key
+            - name: RATE_LIMIT_RPM
+              value: "120"
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "1"
+              memory: "512Mi"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway
+  namespace: llm-serving
+spec:
+  selector:
+    app: gateway
+  ports:
+    - port: 80
+      targetPort: 8000
+      name: http
+  type: LoadBalancer  # External-facing
+---
+# Optional: HPA to auto-scale gateway based on CPU
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: gateway-hpa
+  namespace: llm-serving
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: gateway
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70

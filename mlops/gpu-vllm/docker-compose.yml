@@ -1,0 +1,43 @@
+services:
+  # ── vLLM Inference Server (needs NVIDIA GPU) ──
+  vllm:
+    build: ./vllm-server
+    ports:
+      - "8080:8080"
+    environment:
+      - MODEL_NAME=Qwen/Qwen3-4B-AWQ
+      - GPU_MEMORY_UTILIZATION=0.90
+      - MAX_MODEL_LEN=4096
+      - MAX_NUM_SEQS=64
+      - HF_TOKEN=${HF_TOKEN:-}  # Optional: for gated models
+    volumes:
+      - model-cache:/root/.cache/huggingface
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s  # model download + load
+
+  # ── FastAPI Gateway ──
+  gateway:
+    build: ./gateway
+    ports:
+      - "8000:8000"
+    environment:
+      - VLLM_BASE_URL=http://vllm:8080
+      - API_KEY=${API_KEY:-changeme}
+      - RATE_LIMIT_RPM=120
+    depends_on:
+      vllm:
+        condition: service_healthy
+
+volumes:
+  model-cache:
