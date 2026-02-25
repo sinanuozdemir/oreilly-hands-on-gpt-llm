@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Build deps for llama-cpp-python (compiles from source for CPU optimizations)
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential cmake && \
+    build-essential cmake libopenblas-dev && \
     rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
