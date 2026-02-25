@@ -1,49 +1,24 @@
 # LLM Deploy Stack
 
-Two deployment patterns for serving open-source / fine-tuned LLMs.
+GPU deployment for serving open-source / fine-tuned LLMs with vLLM.
 
-## Option 1: Railway (CPU) — `railway/`
-
-**For:** Prototyping, low-traffic APIs, demos, CPU-only environments  
-**Model:** Qwen3-4B GGUF (Q4_K_M quantized, ~2.5GB RAM)  
-**Stack:** FastAPI + llama-cpp-python  
-**Deploy:** Railway (no GPU needed)
-
-```
-┌──────────────────────────────────────────┐
-│              Railway Service              │
-│                                          │
-│   FastAPI + llama-cpp-python             │
-│   ┌────────────────────────────────┐     │
-│   │  /v1/chat/completions          │     │
-│   │  /v1/completions               │     │
-│   │  /health                       │     │
-│   │  Streaming (SSE)               │     │
-│   │  API Key Auth                  │     │
-│   │  Rate Limiting                 │     │
-│   └────────────────────────────────┘     │
-│   Model: Qwen3-4B-Q4_K_M.gguf          │
-│   Runs on CPU · ~2.5 GB RAM             │
-└──────────────────────────────────────────┘
-```
-
-## Option 2: GPU (vLLM) — `gpu-vllm/`
+## GPU (vLLM) — `gpu-vllm/`
 
 **For:** Production, high throughput, concurrent users  
-**Model:** Qwen/Qwen3-4B-AWQ (INT4, runs on single GPU)  
+**Model:** Qwen/Qwen3-14B-AWQ (INT4, runs on single GPU)  
 **Stack:** FastAPI gateway + vLLM inference server  
-**Deploy:** RunPod, Lambda Labs, Vultr, OVH, or any NVIDIA GPU box  
+**Deploy:** DigitalOcean, RunPod, Lambda Labs, Vultr, OVH, or any NVIDIA GPU box  
 **Kubernetes:** Full K8s manifests included in `gpu-vllm/k8s/`
 
 ```
 ┌────────────────────┐     ┌──────────────────────────────┐
 │   FastAPI Gateway   │────▶│     vLLM Inference Server    │
 │                     │     │                              │
-│  • API key auth     │     │  • Qwen3-4B-AWQ              │
+│  • API key auth     │     │  • Qwen3-14B-AWQ             │
 │  • Rate limiting    │     │  • Continuous batching        │
 │  • Streaming proxy  │     │  • Paged attention            │
 │  • Health checks    │     │  • OpenAI-compatible API      │
-│  • Request logging  │     │  • ~3GB VRAM                  │
+│  • Request logging  │     │  • ~9GB VRAM                  │
 │                     │     │                              │
 │  Can run anywhere   │     │  Needs NVIDIA GPU             │
 │  (Railway, VPS)     │     │  (RunPod, Lambda, etc.)       │
@@ -55,7 +30,6 @@ Two deployment patterns for serving open-source / fine-tuned LLMs.
 
 ## Deployment Guides
 
-- **Railway (CPU):** See [`railway/DEPLOY.md`](railway/DEPLOY.md)
 - **GPU (Docker Compose):** See [`gpu-vllm/DEPLOY.md`](gpu-vllm/DEPLOY.md)
 - **GPU (DigitalOcean Kubernetes):** See [`gpu-vllm/DIGITAL_OCEAN.md`](gpu-vllm/DIGITAL_OCEAN.md)
 
@@ -63,7 +37,7 @@ Two deployment patterns for serving open-source / fine-tuned LLMs.
 
 ## Streaming
 
-Both options support OpenAI-compatible SSE streaming:
+OpenAI-compatible SSE streaming:
 
 ```python
 from openai import OpenAI
@@ -97,17 +71,6 @@ messages=[
 | `/no_think` | "2." | 7 | ~1s |
 
 ---
-
-## Quick Comparison
-
-| | Railway (CPU) | GPU (vLLM) |
-|---|---|---|
-| Throughput | ~5-15 tok/s | ~80-200+ tok/s |
-| Concurrency | 1-3 users | 50+ users |
-| Cost | ~$5-20/mo | ~$0.20-0.80/hr GPU |
-| Setup time | 5 min | 15 min |
-| GPU required | No | Yes |
-| Best for | Dev, demos, low traffic | Production, high traffic |
 
 ## GPU Provider Recommendations (non-AWS, non-GCP)
 

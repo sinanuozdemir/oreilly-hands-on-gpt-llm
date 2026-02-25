@@ -1,5 +1,0 @@
-fastapi
-uvicorn
-httpx
-pydantic
-llama-cpp-python

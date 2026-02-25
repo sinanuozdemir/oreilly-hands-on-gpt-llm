@@ -50,6 +50,7 @@ This course is designed to equip software engineers, data scientists, and machin
 | [Working with GGUF (no GPU)](https://colab.research.google.com/drive/15IC5cI-aFbpND5GrvKjAMas1Hmc7M6Rg?usp=sharing) | Using Llama.cpp to work with models |
 | [Working with GGUF (with a GPU)](https://colab.research.google.com/drive/1D6k-BeuF8YRTR8BGi2YYJrSOAZ6cYX8Y?usp=sharing) | Using Llama.cpp to work with models |
 | [DeepSeek Model on GGUF](https://colab.research.google.com/drive/1dHx_t_BSfqANBECcHXm2atpvqwxWmE3k?usp=sharing) | Running a DeepSeek Distilled Llama model using Llama.cpp |
+| [Qwen on GGUF with Llama.cpp](https://colab.research.google.com/drive/1VC6n_-GmuXWaqpnx2icOsCUpjZjrMYTK?usp=sharing) | Running Qwen models using Llama.cpp |
 | [K8s GGUF Demo](./mlops/llama_cpp) | Using embedding models and Llama 3 with GGUF on a GPU |
 
 ---
@@ -76,7 +77,6 @@ This course is designed to equip software engineers, data scientists, and machin
 | Notebook | Description |
 |----------|-------------|
 | [Semantic Search](notebooks/semantic_search.ipynb) | |
-| [A basic RAG Bot using GPT and Pinecone](notebooks/rag_bot.ipynb) | |
 
 ---
 
