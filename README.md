@@ -52,6 +52,7 @@ This course is designed to equip software engineers, data scientists, and machin
 | [DeepSeek Model on GGUF](https://colab.research.google.com/drive/1dHx_t_BSfqANBECcHXm2atpvqwxWmE3k?usp=sharing) | Running a DeepSeek Distilled Llama model using Llama.cpp |
 | [Qwen on GGUF with Llama.cpp](https://colab.research.google.com/drive/1VC6n_-GmuXWaqpnx2icOsCUpjZjrMYTK?usp=sharing) | Running Qwen models using Llama.cpp |
 | [K8s GGUF Demo](./mlops/llama_cpp) | Using embedding models and Llama 3 with GGUF on a GPU |
+| [vLLM + Gateway on K8s](./mlops) | Production GPU deployment with vLLM, FastAPI gateway, and DigitalOcean K8s |
 
 ---
 
