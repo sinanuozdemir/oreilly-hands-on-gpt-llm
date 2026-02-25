@@ -73,14 +73,8 @@ This course is designed to equip software engineers, data scientists, and machin
 | [Introduction to Prompt Engineering](notebooks/intro_prompt_engineering.ipynb) | |
 | [Advanced Prompt Engineering](notebooks/adv_prompt_engineering.ipynb) | |
 
-### RAG
-
-| Notebook | Description |
-|----------|-------------|
-| [Semantic Search](notebooks/semantic_search.ipynb) | |
-
 ---
 
 ## Instructor
 
-**Sinan Ozdemir** is the Founder and CTO of LoopGenius where he uses State of the art AI to help people create and run their businesses. Sinan is a former lecturer of Data Science at Johns Hopkins University and the author of multiple textbooks on data science and machine learning. Additionally, he is the founder of the recently acquired Kylie.ai, an enterprise-grade conversational AI platform with RPA capabilities. He holds a master's degree in Pure Mathematics from Johns Hopkins University and is based in San Francisco, CA.
+**Sinan Ozdemir** Sinan is a former lecturer of Data Science at Johns Hopkins University and the author of multiple textbooks on data science and machine learning. Additionally, he is the founder of the recently acquired Kylie.ai, an enterprise-grade conversational AI platform with RPA capabilities. He holds a master's degree in Pure Mathematics from Johns Hopkins University and is based in San Francisco, CA.
